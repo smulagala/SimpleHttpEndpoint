@@ -1,0 +1,10 @@
+{
+  "name": "simplehttpendpoint",
+  "version": "1.0.0",
+  "description": "Settting up simple http endpoing with get method.",
+  "author": "Siva Mulagala",
+  "license": "ISC",
+  "dependencies": {
+    "serverless-python-requirements": "^5.0.1"
+  }
+}
