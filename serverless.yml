@@ -6,27 +6,39 @@ provider:
   region: ap-south-1
   runtime: python3.7
   apiKeys:
-    - ${self:provider.stage}-myClientFive #It is advisable to create the API keys along with stage name as they are storing globally
-    - myClient2
+    # - ${self:provider.stage}-myClientFive #It is advisable to create the API keys along with stage name as they are storing globally
+    # - myClient2
 
 functions:
-  currentTime:
-    handler: handler.hello
+  # currentTime:
+  #   handler: handler.hello
+  #   events:
+  #     - http:
+  #         path: hello
+  #         method: get
+  #         private: true #We can make this true for making endpoint secure with API key
+  #         cors: true
+
+  # currentTime2:
+  #   handler: handler.hello2
+  #   events:
+  #     - http:
+  #         path: hello2
+  #         method: get
+  #         private: true #We can make this true for making endpoint secure with API key
+  #         cors: true
+
+  greetMe:
+    handler: handler.greet_me
     events:
       - http:
-          path: hello
-          method: get
-          private: true #We can make this true for making endpoint secure with API key
+          path: greet_me
+          method: post
+          private: false #We can make this true for making endpoint secure with API key
           cors: true
 
-  currentTime2:
-    handler: handler.hello2
-    events:
-      - http:
-          path: hello2
-          method: get
-          private: true #We can make this true for making endpoint secure with API key
-          cors: true
+plugins:
+  - serverless-python-requirements
 
 
 
