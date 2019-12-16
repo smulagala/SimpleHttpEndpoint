@@ -61,3 +61,15 @@ def greet_me(event, context):
     
     return response
 
+def put_method(event, context):
+    body = json.loads(event['body'])
+    response = {
+        'statusCode': 200,
+        "headers": {
+            "Access-Control-Allow-Origin": "*"
+        },
+        "body": json.dumps(body)
+    }
+    return response
+
+

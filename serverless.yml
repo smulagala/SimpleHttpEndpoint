@@ -28,14 +28,25 @@ functions:
   #         private: true #We can make this true for making endpoint secure with API key
   #         cors: true
 
-  greetMe:
-    handler: handler.greet_me
+  # #Sample post method
+  # greetMe:
+  #   handler: handler.greet_me
+  #   events:
+  #     - http:
+  #         path: greet_me
+  #         method: post
+  #         private: false #We can make this true for making endpoint secure with API key
+  #         cors: true
+
+  putMethodCheck:
+    handler: handler.put_method
     events:
       - http:
-          path: greet_me
-          method: post
-          private: false #We can make this true for making endpoint secure with API key
+          path: put_method_check
+          method: put
+          private: false
           cors: true
+
 
 plugins:
   - serverless-python-requirements
