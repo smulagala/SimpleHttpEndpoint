@@ -1,5 +1,12 @@
 service: simplehttpendpoint
 
+package:
+  exclude:
+    - node_modules/**
+    - .serverless/**
+  include:
+    - src/handler.py
+
 provider: 
   name: aws
   stage: dev
@@ -39,7 +46,7 @@ functions:
   #         cors: true
 
   putMethodCheck:
-    handler: handler.put_method
+    handler: src/handler.put_method
     events:
       - http:
           path: put_method_check
@@ -47,6 +54,14 @@ functions:
           private: false
           cors: true
 
+  deleteMethodCheck:
+    handler: src/handler.delete_method
+    events:
+      - http:
+          path: delete_method_check
+          method: delete
+          private: false
+          cors: true
 
 plugins:
   - serverless-python-requirements

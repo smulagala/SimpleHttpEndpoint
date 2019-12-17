@@ -72,4 +72,15 @@ def put_method(event, context):
     }
     return response
 
-
+def delete_method(event, context):
+    body = json.loads(event['body'])
+    query_params = event['queryStringParameters']
+    message = {'body': body, 'params': query_params}
+    response = {
+        'statusCode': 200,
+        "headers": {
+            "Access-Control-Allow-Origin": "*"
+        },
+        "body": json.dumps(message)
+    }
+    return response
