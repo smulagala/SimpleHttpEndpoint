@@ -45,6 +45,24 @@ functions:
   #         private: false #We can make this true for making endpoint secure with API key
   #         cors: true
 
+  getMethodCheck:
+    handler: src/handler.get_method
+    events:
+      - http:
+          path: get_method_check
+          method: get
+          private: false
+          cors: true
+  
+  postMethodCheck:
+    handler: src/handler.post_method
+    events:
+      - http:
+          path: post_method_check
+          method: post
+          private: false
+          cors: true
+
   putMethodCheck:
     handler: src/handler.put_method
     events:
@@ -62,6 +80,20 @@ functions:
           method: delete
           private: false
           cors: true
+
+  multiMethodCheck:
+    handler: src/handler.greet_me
+    events:
+      - http:
+          path: get
+          method: get
+          private: false
+          cors: true
+      - http:
+          path: post
+          method: post
+          private: false
+          cors: false
 
 plugins:
   - serverless-python-requirements
